@@ -2,7 +2,7 @@
 * @Author: yz.yujingzhou     
 * @Date: 2020-09-02 12:02:10     
  * @Last Modified by: yz.yujingzhou
- * @Last Modified time: 2020-11-26 18:26:06
+ * @Last Modified time: 2021-01-25 11:24:18
 **/   
 
 import 'dart:convert';
@@ -14,6 +14,14 @@ import '../../tools/common.dart';
 class YZDinamicWidgetUtils {
   YZDinamicWidgetUtils._();
   
+  static String valueAdapter(String str, State state) {
+      String _ret;
+
+      _ret = YZDynamicVariableUtil.getValueOfVariable(str, state: state);
+
+      return _ret;
+  }
+
   ///adapt dsl alignment to the flutter Alignment
   static Alignment alignmentAdapter(String alignmentString){
     Alignment alignment;
@@ -171,10 +179,10 @@ class YZDinamicWidgetUtils {
   }  
 
   ///adapt dsl color to the flutter color 0xff123456
-  static int intAdapter(String colorString){
-    if (colorString == null) return null;
+  static int intAdapter(String str){
+    if (str == null) return null;
 
-    return YZDynamicCommon.parseInt(num.tryParse(colorString));
+    return YZDynamicCommon.parseInt(num.tryParse(str));
   }   
 
   ///adapt dsl TextInputType to the flutter TextInputType

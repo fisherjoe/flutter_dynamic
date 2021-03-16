@@ -1,16 +1,15 @@
 # flutter_dynamic
-flutter_dynamic 是一个能动态创建Flutter应用的引擎。flutter_dynamic不但支持写UI，还支持写代码逻辑。    
+flutter_dynamic 是一个能动态创建Flutter应用的引擎。flutter_dynamic不但支持写UI，还支持写代码逻辑。  
 EN: The flutter_dynamic is an engine that create flutter application dynamically. flutter_dynamic not only supports writing UI, but also writing code logic.
 
 * [中文文档](https://github.com/Yingzi-Technology/flutter_dynamic/blob/master/README_CH.md)     
-* [English Document](https://github.com/Yingzi-Technology/flutter_dynamic/blob/master/README.md) 
+* [English Document](https://github.com/Yingzi-Technology/flutter_dynamic/blob/master/README.md)
 
 * [Github地址](https://github.com/Yingzi-Technology/flutter_dynamic)
 * [153768151@qq.com](https://github.com/fisherjoe) - feel free to contact me
 
 ## Best practice
-> Dynamically create similar UI and interactive pages. If you have read the document, you can follow us step by step to create an interesting dynamic page. [Best practice](https://github.com/Yingzi-Technology/flutter_dynamic/blob/master/doc/bestpratice.md)
-
+> 动态创建类似有UI和交互的页面。如果你已经阅读了该文档，可以跟着我们一步步创建一个有趣的动态页面。[Best practice](https://github.com/Yingzi-Technology/flutter_dynamic/blob/master/doc/bestpratice.md)
 
 <img src="https://upload-images.jianshu.io/upload_images/3868052-24e08253efeff413.gif?imageMogr2/auto-orient/strip" width="320px"/>
 
@@ -26,18 +25,17 @@ EN: The flutter_dynamic is an engine that create flutter application dynamically
 
 ## General-info
 
-> In the process of product development, pages need to be dynamically created remotely. But the Flutter framework is not like the javascript dynamic language that can remotely issue and dynamically execute scripts, nor is it like the Android or iOS platform's java or objective c language that supports dynamic hot updates or dynamic language features, and even limits the reflection of the Dart language in Flutter Features, so dynamic pages based on Flutter are very limited. The flutter_dynamic engine was developed to meet the needs of products that need to dynamically create form applications remotely, and the second is to take this opportunity to explore the implementation of Flutter's broader dynamic characteristics; currently this engine is still in the stage of continuous improvement, and it is inevitable that there will be defects.  
+> 有时候在产品开发的过程中需要远程动态地创建表单或更新某个表单应用，但Flutter框架不像javascript动态语言可以远程下发并动态执行脚本，也不像Android或iOS平台的java或objective c语言支持动态热更新或动态语言特性等，甚至在Flutter中限制了Dart语言的反射特性，所以基于Flutter来做动态页面就显得很有局限性。开发flutter_dynamic引擎一是为了满足产品需要远程动态创建表单应用的需求，二是借此机会探索Flutter更广泛的动态特性实现方案；目前这个引擎还处在不断完善阶段，难免会有缺陷。  
 
-> This engine mainly includes the following aspects:  
---Provide a Widget type that is highly similar to the Flutter system to meet the Widget library required to construct a UI; and provide a custom Widget extension engine to meet the needs of developers to customize the Widget type based on this engine's interpretation;  
---Provide variable variable interpretation engine, provide basic type syntax similar to Dart, satisfy similar variable definition, class attribute definition, etc.;  
---Provide action method interpretation engine, provide similar Dart method syntax, satisfy similar method calls;  
---Provide code code interpretation engine, provide similar Dart relational operations, logical operations, control flow and other grammars to satisfy basic code logic;  
---Provide event event interpretation engine, provide event processing similar to Flutter;  
+> 本引擎主要包括以下几个方面：  
+--提供高度类似Flutter系统的Widget类型，以满足构造UI所需的Widget库；并提供自定义Widget扩展引擎，满足开发者自定义基于本引擎解释的Widget类型；  
+--提供variable变量解释引擎，提供类似Dart基本类型语法，满足类似变量定义、类属性定义等；  
+--提供action方法解释引擎，提供类似Dart方法语法，满足类似方法调用；  
+--提供code代码解释引擎，提供类似Dart关系运算、逻辑运算、控制流程等语法，满足写基本的代码逻辑；  
+--提供event事件解释引擎，提供类似Flutter的事件处理；   
 
 ## Install
 #### step 1. Depend on it
-Add this to your package's pubspec.yaml file:
 ```
 dependencies:
   yz_flutter_dynamic:
@@ -66,7 +64,7 @@ import 'package:yz_flutter_dynamic/main.dart';
 ```
 
 ## Get-started
-> flutter_dynamic is completely open source, and there are complete examples in the example in the code. The following is a description of the core process:
+> flutter_dynamic是完全开源的，在代码中的example里也已经具有完整的示例，以下针对核心的流程说明：
 
 #### Hello world
 
@@ -121,7 +119,7 @@ Map hwDsl =
 };
 ```
 ### How to create your dynamic widget
-> We think that any page or component of Flutter is a StatefulWidget, so when we create a new page or component, we treat it as a StatefulWidget. The page is the same as StatefulWidget.
+>我们认为Flutter的任何页面或组件都是StatefulWidget，所以当我们无论创建一个新页面或组件时我们都把它当作一个StatefulWidget来看待。页面和StatefulWidget是一样。
 
 ***step1: How to create widget UI***
 
@@ -159,7 +157,7 @@ json
   ]           
 }
 ```
-> The above code completely presents a json data for constructing a widget. The value of rootWidget describes the root node Container of the widget, and returns the Container wrapped by the StatefulWidget. The following will mainly explain each attribute one by one:  
+> 上面的代码较完整地呈现了一个构造一个widget的json数据。其中rootWidget的值描述了该widget的根结点Container，返回StatefulWidget包裹的Container。下面将主要对各属性一一说明：  
 
 - `xKey`：The globalkey of widget to find the widget.
 
@@ -174,7 +172,7 @@ json
 	- **map**: The type of property value like "Size" will be {"color":"", "width":""}.
 
 ***step2: How to create page***
-> Creating page UI is the same as creating widget UI. At the same time, their json data is also common. Widget is a simplified version of page.
+> 创建page UI和创建widget UI是一样的，同时它们的json数据也是通用的，widget是page的简单化版。 
 
 invoke build page
 ```dart
@@ -206,7 +204,7 @@ json
 }
 ```
 
-> The above code completely presents a json data that constructs a page. Some of the page attributes are inconsistent with widgets, as explained below:
+> 上面的代码较完整地呈现了一个构造一个page的json数据。  page属性里有些和widget不致，下面一一说明：  
 
 - `key`：The globalkey of page.
 
@@ -219,7 +217,7 @@ json
 - `rootWidget`: The root widget of page. It is similay to the return widget of StatefulWidget's build method.
 
 ***step3: How to write code***
-> flutter_dynamic provides a set of pseudo-code code that imitates the Dart language, through which more complex logic of the page can be realized. The code can define variables, control the process, obtain data between different components, call the Flutter system api, and so on. The code can be used in the following places of json data: [Grammar 语法](#Grammar)
+> flutter_dynamic提供了一套仿Dart语言的伪代码code, 通过伪代码code可以实现页面更加复杂的逻辑。code可以定义变量、控制流程、获取不同组件之间数据、调用Flutter system api等等能力。json数据的以下地方可以使用code：[Grammar 语法](#Grammar)
 
 
 - code of property: such as event config {"eventType": "onClick", "code": \`\`\` [code...] \`\`\`}
@@ -227,27 +225,25 @@ json
 
 
 ***step4: How to use variables***
-> Pseudo-code code variables have four scopes: page scope, component scope, code block scope; the ways to use variables are: &lt;p:variableName&gt;, &lt;w:variableName&gt;, &lt;c: variableName&gt;. There are the following ways to initialize variables:
+> 伪代码code变量有四种作用域：分别是页面作用域、组件作用域、code块作用域；使用变量的方式分别是：&lt;p:variableName&gt;、&lt;w:variableName&gt;、&lt;c:variableName&gt;。有如下方式可以初始化变量：
 
-- Defined in the xVar attribute of the page/widget object, such as: "xVar": {"variableName": "variableValue"}；
-- Defined in code, such as: \`\`\`&lt;c:variableName&gt;=Int(10); &lt;w:variableName2&gt;=String(Hellow world)\`\`\`；
+- 在page/widget对象的xVar属性中定义，如："xVar": {"variableName": "variableValue"}；
+- 在code中定义，如：\`\`\`&lt;c:variableName&gt;=Int(10); &lt;w:variableName2&gt;=String(Hellow world)\`\`\`；
 
-Note: The pseudo-code code variable has no variable type. If the type is not mandatory when assigning, it will automatically default to a string, and will be automatically converted according to specific needs when used.
+注意：伪代码code变量没有变量类型。如果赋值时没有强制说明类型则自动默认为字符串，使用的时候会根据特定需要自动转换。
 
 ***step5: How to implement event***
-> The engine provides a set of simple event handling mechanism xEvent. The event processing mechanism can define events and realize the logic of events.
-The logic of the event is realized by pseudo-code code.
-
+> 引擎提供了一套简单的事件处理机制xEvent。通过事件处理机制可以定义事件及实现事件的逻辑。
+事件的逻辑是通过伪代码code来实现的。
 
 
 ##  Grammar
-In the example of the source code, there is pseudo code syntax for writing dynamic pages, as shown in the figure:  
+在源代码的example里有写动态页面的伪代码语法，如图所示：
 
 ![Simulator Screen Shot - iPhone 12 - 2020-12-17 at 09.22.41.png](https://upload-images.jianshu.io/upload_images/3868052-917c8c2720d84fe9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/360)
 
-
 ## Widgets
-> Currently we support the following widgets.
+> 目前我们支持如下Widget。  
 
 [Container](https://github.com/Yingzi-Technology/flutter_dynamic/tree/master/lib/widgets)  
 [Text](https://github.com/Yingzi-Technology/flutter_dynamic/tree/master/lib/widgets)  
@@ -266,7 +262,7 @@ In the example of the source code, there is pseudo code syntax for writing dynam
 [Dialog](https://github.com/Yingzi-Technology/flutter_dynamic/tree/master/lib/widgets)  
 
 ## Customize-Widget
-> When the components provided by the engine do not meet the usage requirements, you can add custom components by extending the components. The way to customize components is as follows, or refer to [Container](https://github.com/Yingzi-Technology/flutter_dynamic/blob/master/lib/widgets/container.dart)：
+> 当引擎提供的组件不满足使用需求时，可以通过扩展组件的方式添加自定义的组件。自定义组件的方式如下，或者参考 [Container](https://github.com/Yingzi-Technology/flutter_dynamic/blob/master/lib/widgets/container.dart)：
 
 Define CustomerWidget
 ```dart
@@ -373,7 +369,7 @@ User CustomerWidget
 
 
 ## Customize-Grammar
-> When the pseudo-code syntax provided by the engine does not meet the usage requirements, you can add a custom syntax by extending the action.  
+> 当引擎提供的伪代码语法不满足使用需求时，可以通过扩展action的方式添加自定义的语法。  
 
 Define action
 ```dart
@@ -417,6 +413,7 @@ User action
 ```dart
 yzToast(tip:content);
 ```
+
 
 ## Contact
 Created by [153768151@qq.com](https://github.com/fisherjoe) - feel free to contact me

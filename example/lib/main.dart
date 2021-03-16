@@ -2,15 +2,17 @@
 * @Author: yz.yujingzhou     
 * @Date: 2020-09-03 09:35:13     
  * @Last Modified by: yz.yujingzhou
- * @Last Modified time: 2020-12-16 17:41:19
+ * @Last Modified time: 2020-12-25 11:41:49
 **/   
 import 'package:flutter/material.dart';
-import 'package:yingzi_flutter_dynamicpage/yz_dynamicpage.dart';
+import 'package:yz_flutter_dynamic/main.dart';
 
+import 'demo/bestpratice.dart';
 import 'demo/config.dart';
 import 'demo/dsl.dart';
 import 'demo/helloworld.dart';
 import 'grammar/unittesting.dart';
+import 'grammar/user_code.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,7 +30,8 @@ class _MyAppState extends State<MyApp> {
     //Register the third part widget
     dynamicpageConfigDemo();
     
-    print('----------${bool.fromEnvironment("dart.vm.product")}');
+    YZDynamicCommon.addGlobalVariable("person", {"name" : "Tom", "sex": "male"});
+    YZDynamicCommon.reginsterPublicActionHandler(YZUserCodeHandler());
 
   }
 
@@ -51,7 +54,7 @@ class _MyAppState extends State<MyApp> {
                     }));  
                   }, 
                   child: Text('Grammar and Unit testing\n\r(语法和示例)')
-                ),     
+                ),                   
                FlatButton(
                   color: Colors.black12,
                   onPressed: (){                
@@ -60,27 +63,36 @@ class _MyAppState extends State<MyApp> {
                     }));  
                   }, 
                   child: Text('Hello world')
-                ),                            
+                ),   
+                FlatButton(
+                  color: Colors.black12,
+                  onPressed: (){                
+                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext contex){
+                      return YZDynamic.buildWidget(context, bestPraticeDsl, preConfig: null);
+                    }));  
+                  }, 
+                  child: Text('Best Practice (最佳实践)')
+                ),        
+                Divider(thickness: 2),                                
                 FlatButton(
                   color: Colors.black12,
                   onPressed: (){
-                    YZDynamicPage.handle(
+                    YZDynamic.handle(
                       context, demoDsl, 
                       preConfig: YZDynamicPagePreConfig(
                         params: [
-                          YZDynamicVariable(name: "pigId", value: "1987764234"),
                           YZDynamicVariable(name: "key1", value: "value001"),
                           YZDynamicVariable(name: "key2", value: "value002"),
                         ],                        
                       )
                     );
                   }, 
-                  child: Text('Present Nav Page')
+                  child: Text('Demo: Present Nav Page')
                 ),
                 FlatButton(
                   color: Colors.black12,
                   onPressed: (){
-                    YZDynamicPage.handle(
+                    YZDynamic.handle(
                       context, formDsl, 
                       preConfig: YZDynamicPagePreConfig(
                         params: [
@@ -89,12 +101,12 @@ class _MyAppState extends State<MyApp> {
                       )
                     );
                   }, 
-                  child: Text('Present Nav Form Page')
+                  child: Text('Demo: Present Nav Form Page')
                 ),
                 FlatButton(
                   color: Colors.black12,
                   onPressed: (){                
-                    YZDynamicPage.handle(
+                    YZDynamic.handle(
                       context, dialogDsl, 
                       preConfig: YZDynamicPagePreConfig(
                         params: [
@@ -105,16 +117,16 @@ class _MyAppState extends State<MyApp> {
                       )
                     );
                   }, 
-                  child: Text('Present Dialog Page')
+                  child: Text('Demo: Present Dialog Page')
                 ), 
                 FlatButton(
                   color: Colors.black12,
                   onPressed: (){                
                     Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext contex){
-                      return YZDynamicPage.build(context, demoDsl, preConfig: null);
+                      return YZDynamic.buildPage(context, demoDsl, preConfig: null);
                     }));  
                   }, 
-                  child: Text('Present Page With Custom mode')
+                  child: Text('Demo: Present Page With Custom mode')
                 )
               ],
             )

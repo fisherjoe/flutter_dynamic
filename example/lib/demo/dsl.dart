@@ -19,7 +19,7 @@ Map demoDsl =
     "entrane": {}, 
     "props": {},
     "xVar": {
-      "initData": "初始化变量"
+      "initData": "Initialize Value"
     }, 
     "xActions": {}   
   }
@@ -73,8 +73,14 @@ var _dslRootWidget = {
                           "xKey": "",
                           "widgetName": "Column",
                           "props": {
-                            "children": [             
-                              container, 
+                            "children": [    
+                              {
+                                "xKey": "_StatefulWidget",
+                                "widgetName": "StatefulWidget",
+                                "props": {
+                                  "build": container
+                                }
+                              },  
                               sizedBox,
                               textField,
                               sizedBox,
@@ -164,7 +170,7 @@ var textField = {
       "fontWeight": "bold"
     },
     "keyboardType": "number",
-    "value": "Input",
+    "value": "var:<g:person.name>",
     "decoration" : {          
       "hint": "'TextField' hint: Please enter value",
       "border": {

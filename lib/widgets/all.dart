@@ -5,6 +5,9 @@
  * @Last Modified time: 2020-11-26 18:11:40
 **/   
 
+import 'statefulwidget.dart';
+import 'statelesswidget.dart';
+
 import 'app_bar.dart';
 import 'basic.dart';
 import 'basic/handler.dart';
@@ -21,6 +24,7 @@ import 'scaffold.dart';
 import 'scroll_view.dart';
 import 'text.dart';
 import 'text_field.dart';
+import 'divider.dart';
 
 /// All handlers for register
 List<YZDynamicBasicWidgetHandler> yzAllDynamicWidgetHandlers = [
@@ -39,4 +43,7 @@ List<YZDynamicBasicWidgetHandler> yzAllDynamicWidgetHandlers = [
   YZRawMaterialButtonHandler(),
   YZSizedBoxHandler(),
   YZDialogHandler(),
+  YZStatefulWidgetHandler(),
+  YZStatelessWidgetHandler(),
+  YZDividerHandler(),
 ];

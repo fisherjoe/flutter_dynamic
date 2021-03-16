@@ -6,7 +6,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:yingzi_flutter_dynamicpage/yz_dynamicpage.dart';
+import 'package:yz_flutter_dynamic/main.dart';
 
 class Helloworld extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class Helloworld extends StatefulWidget {
 class _HelloworldState extends State<Helloworld> {
   @override
   Widget build(BuildContext context) {
-    return YZDynamicPage.build(
+    return YZDynamic.buildWidget(
       context, 
       hwDsl, 
     );
@@ -25,46 +25,31 @@ class _HelloworldState extends State<Helloworld> {
 
 Map hwDsl =
 {
-  "page": {
-    "key": "",
-    "type": "",
-    "name": "",
-    "presentMode": "navpage", 
-    "routeTag": "",    
-    "rootWidget": {
+  "xKey": "",
+  "widgetName": "Scaffold",
+  "props": {
+    "appBar": {
       "xKey": "",
-      "widgetName": "Scaffold",
+      "widgetName": "AppBar",
       "props": {
-        "appBar": {
-          "xKey": "",
-          "widgetName": "AppBar",
+        "title": {
+          "widgetName": "Text",
+          "props": {"data": "Navigator"}
+        }
+      }
+    },
+    "body": {
+      "xKey": "",
+      "widgetName": "SafeArea",
+      "props": {
+        "child": {
+          "xKey": "_Text",
+          "widgetName": "Text",
           "props": {
-            "title": {
-              "widgetName": "Text",
-              "props": {"data": "Navigator"}
-            }
-          }
-        },
-        "body": {
-          "xKey": "",
-          "widgetName": "SafeArea",
-          "props": {
-            "child": {
-              "xKey": "_Text",
-              "widgetName": "Text",
-              "props": {
-                "data": "Hello world"
-              }
-            }
+            "data": "Hello world"
           }
         }
-      }      
-    },
-    "entrane": {}, 
-    "props": {},
-    "xVar": {
-      "initData": "Init data"
-    }, 
-    "xActions": {}   
-  }
+      }
+    }
+  }      
 };

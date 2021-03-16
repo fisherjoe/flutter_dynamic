@@ -6,7 +6,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:yingzi_flutter_dynamicpage/yz_dynamicpage.dart';
+import 'package:yz_flutter_dynamic/main.dart';
 
 import 'base.dart';
 
@@ -21,7 +21,7 @@ class _UTNumberState extends UTBaseState<UTNumber> {
 
   List<Widget> getItem() {
     return [
-      createItem("int", "action:int(123);"),
+      createItem("int", "<c:ret>=action:int(123);"),
       createItem("double", "action:double(123);"),
       createItem("num", "action:num(123);"),
       createItem("num.+", "action:num.+(1, 2);"),

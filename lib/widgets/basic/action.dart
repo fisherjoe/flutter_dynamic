@@ -6,7 +6,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:yingzi_flutter_dynamicpage/yz_dynamicpage.dart';
+import 'package:yz_flutter_dynamic/main.dart';
 
 import 'event.dart';
 import 'widget.dart';
@@ -42,13 +42,5 @@ mixin YZDynamicWidgetActionServer {
   ){
     return YZDynamicActionTool.triggerActions(state, actions, localVariables: localVariables);
   }
-
-  // void triggerActionsOfSimpleActions(    
-  //   List<YZDynamicActionConfig> simpleActions,
-  //   Map<String, YZDynamicActionConfig> xActions,
-  //   [BuildContext context, YZDynamicWidgetBasicState state, ]
-  // ) {
-  //   return YZDynamicActionTool.triggerActionsOfSimpleActions(simpleActions, xActions);
-  // }
 
 }
